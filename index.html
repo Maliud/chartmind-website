@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChartMind — AI-Powered Trading Assistant</title>
+    <meta name="description"
+        content="ChartMind uses advanced AI to analyze financial charts, identify patterns, and provide professional trading insights. Available on iOS and Android.">
+    <meta name="keywords"
+        content="ChartMind, AI trading, chart analysis, technical analysis, trading assistant, crypto, stocks, forex">
+    <meta name="author" content="Space AI Labs">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="ChartMind — AI-Powered Trading Assistant">
+    <meta property="og:description" content="Analyze any chart with AI. Get professional trading insights in seconds.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chartmind.space">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+
+<body>
+
+    <!-- ═══ Navbar ═══ -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <div class="logo-icon">📊</div>
+                ChartMind
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#stats">About</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="#download" class="nav-cta">📲 Download</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ═══ Hero ═══ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    AI-Powered Analysis
+                </div>
+                <h1>
+                    Trade Smarter with<br>
+                    <span class="gradient-text">AI Chart Analysis</span>
+                </h1>
+                <p class="hero-description">
+                    Take a photo of any chart or upload from gallery — ChartMind's advanced AI instantly
+                    identifies patterns, calculates technical indicators, and delivers professional trading insights.
+                </p>
+                <div class="hero-actions">
+                    <a href="#download" class="btn-primary">
+                        📲 Download Free
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        Learn More →
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div style="color: var(--text-muted); font-size: 0.7rem; margin-bottom: 8px;">AI ANALYSIS</div>
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #7C4DFF, #448AFF); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 800; color: white;">
+                                87%</div>
+                            <div>
+                                <div style="font-weight: 700; font-size: 1rem; color: #69F0AE;">↗ BULLISH</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted);">Confidence Score</div>
+                            </div>
+                        </div>
+                        <div class="chart-line">
+                            <svg viewBox="0 0 240 100" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#7C4DFF;stop-opacity:0.3" />
+                                        <stop offset="100%" style="stop-color:#7C4DFF;stop-opacity:0" />
+                                    </linearGradient>
+                                </defs>
+                                <path
+                                    d="M0,80 C20,75 40,60 60,65 C80,70 100,40 120,35 C140,30 160,45 180,25 C200,15 220,20 240,10"
+                                    stroke="#7C4DFF" stroke-width="2" fill="none" />
+                                <path
+                                    d="M0,80 C20,75 40,60 60,65 C80,70 100,40 120,35 C140,30 160,45 180,25 C200,15 220,20 240,10 L240,100 L0,100 Z"
+                                    fill="url(#chartGrad)" />
+                            </svg>
+                        </div>
+                        <div style="display: flex; gap: 8px; width: 100%;">
+                            <div
+                                style="flex: 1; background: rgba(124,77,255,0.1); border-radius: 8px; padding: 8px; text-align: center;">
+                                <div style="font-size: 0.6rem; color: var(--text-muted);">RSI</div>
+                                <div style="font-weight: 700; font-size: 0.85rem;">62.4</div>
+                            </div>
+                            <div
+                                style="flex: 1; background: rgba(0,191,165,0.1); border-radius: 8px; padding: 8px; text-align: center;">
+                                <div style="font-size: 0.6rem; color: var(--text-muted);">MACD</div>
+                                <div style="font-weight: 700; font-size: 0.85rem; color: #69F0AE;">+0.42</div>
+                            </div>
+                            <div
+                                style="flex: 1; background: rgba(255,213,79,0.1); border-radius: 8px; padding: 8px; text-align: center;">
+                                <div style="font-size: 0.6rem; color: var(--text-muted);">Risk</div>
+                                <div style="font-weight: 700; font-size: 0.85rem; color: #FFD54F;">4/10</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Features ═══ -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="overline">Features</span>
+                <h2>Everything You Need to Trade Professionally</h2>
+                <p>Advanced AI technology meets professional-grade trading tools.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon purple">📸</div>
+                    <h3>Camera & Gallery Analysis</h3>
+                    <p>Take a photo of any chart on your screen or upload from gallery. Our AI instantly recognizes the
+                        symbol, timeframe, and price levels.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon teal">🤖</div>
+                    <h3>GPT-4 Vision AI</h3>
+                    <p>Powered by GPT-4o Vision with multi-provider failover (Claude, Gemini). Enterprise-grade chart
+                        recognition with 95%+ accuracy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon blue">📊</div>
+                    <h3>Technical Indicators</h3>
+                    <p>RSI, MACD, Bollinger Bands, ADX, ATR, and Fibonacci levels — all calculated from real-time market
+                        data automatically.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon gold">🔔</div>
+                    <h3>Smart Alerts</h3>
+                    <p>Set price alerts and get notified when your targets are hit. Never miss a trading opportunity
+                        again.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon green">💼</div>
+                    <h3>Portfolio Tracker</h3>
+                    <p>Track your crypto, stock, and forex holdings across multiple exchanges with real-time P&L and
+                        currency conversion.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon red">🌍</div>
+                    <h3>Global Markets</h3>
+                    <p>Support for 5,000+ assets including crypto (Binance), US stocks (NYSE/NASDAQ), BIST, LSE, XETRA,
+                        and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Stats ═══ -->
+    <section class="stats" id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Supported Assets</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Global Exchanges</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">AI Providers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Real-Time Data</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Download CTA ═══ -->
+    <section class="cta-section" id="download">
+        <div class="container">
+            <h2>Start Trading Smarter Today</h2>
+            <p>Download ChartMind for free and get AI-powered chart analysis at your fingertips.</p>
+            <div class="store-buttons">
+                <a href="#" class="store-btn">
+                    <span class="store-icon">🍎</span>
+                    <div class="store-text">
+                        <small>Download on the</small>
+                        <strong>App Store</strong>
+                    </div>
+                </a>
+                <a href="#" class="store-btn">
+                    <span class="store-icon">▶️</span>
+                    <div class="store-text">
+                        <small>Get it on</small>
+                        <strong>Google Play</strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo">
+                        <div class="logo-icon">📊</div>
+                        ChartMind
+                    </a>
+                    <p>AI-powered trading assistant for professional chart analysis. Analyze any chart in seconds.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="#stats">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="mailto:m.aliud@outlook.com">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Space AI Labs. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy-policy.html">Privacy</a>
+                    <a href="terms-of-service.html">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const toggle = document.getElementById('navToggle');
+        const links = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => links.classList.toggle('active'));
+
+        // Close on link click
+        links.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => links.classList.remove('active'));
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            navbar.style.background = window.scrollY > 50
+                ? 'rgba(8, 8, 12, 0.95)'
+                : 'rgba(8, 8, 12, 0.85)';
+        });
+    </script>
+
+</body>
+
+</html>
