@@ -12,9 +12,95 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    <style>
+        .lang-selector {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin: 24px 0;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+        }
+
+        .lang-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-right: 8px;
+        }
+
+        .lang-btn {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border);
+            background: rgba(124, 77, 255, 0.08);
+        }
+
+        .lang-btn.active {
+            color: white;
+            background: var(--purple);
+            border-color: var(--purple);
+        }
+
+        .translation-block {
+            margin-top: 48px;
+            padding-top: 40px;
+            border-top: 2px solid var(--border);
+        }
+
+        .translation-notice {
+            padding: 16px 20px;
+            background: rgba(124, 77, 255, 0.08);
+            border: 1px solid rgba(124, 77, 255, 0.2);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            color: var(--purple-light);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .translation-block h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .translation-block h2 {
+            font-size: 1.2rem;
+            margin-top: 32px;
+            margin-bottom: 10px;
+        }
+
+        .translation-block p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 14px;
+        }
+
+        [dir="rtl"] {
+            text-align: right;
+        }
+
+        [dir="rtl"] .translation-notice {
+            direction: rtl;
+        }
+    </style>
 </head>
 
-<body>
+<body data-legal-type="terms">
 
     <!-- Navbar -->
     <nav class="navbar">
@@ -39,6 +125,9 @@
         <div class="container">
             <h1>Terms of Service</h1>
             <p class="last-updated">Last updated: March 9, 2026</p>
+
+            <!-- Language Selector (auto-populated by JS) -->
+            <div id="language-selector"></div>
 
             <div class="highlight-box">
                 <p><strong>Important:</strong> ChartMind provides AI-powered technical analysis for educational and
@@ -146,11 +235,13 @@
 
             <h2>12. Changes to Terms</h2>
             <p>We reserve the right to modify these Terms at any time. Continued use of the App after changes
-                constitutes acceptance of the updated Terms.</p>
+                constitutes acceptance of the updated Terms. We will notify you of material changes via in-app
+                notification or email.</p>
 
             <h2>13. Governing Law</h2>
             <p>These Terms shall be governed by and construed in accordance with applicable laws. Any disputes shall be
-                resolved through binding arbitration.</p>
+                resolved through binding arbitration. For EU users, this does not affect your statutory rights under
+                European consumer protection law.</p>
 
             <h2>14. Contact</h2>
             <p>For questions about these Terms, contact us:</p>
@@ -159,6 +250,9 @@
                 <li><strong>Company:</strong> Space AI Labs</li>
                 <li><strong>Website:</strong> <a href="https://chartmind.space">https://chartmind.space</a></li>
             </ul>
+
+            <!-- Translated content (auto-populated by JS based on browser locale) -->
+            <div id="translated-content"></div>
         </div>
     </main>
 
@@ -181,6 +275,7 @@
         const links = document.getElementById('navLinks');
         toggle.addEventListener('click', () => links.classList.toggle('active'));
     </script>
+    <script src="translations.js"></script>
 
 </body>
 

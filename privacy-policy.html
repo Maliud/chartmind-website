@@ -12,9 +12,95 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    <style>
+        .lang-selector {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin: 24px 0;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+        }
+
+        .lang-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-right: 8px;
+        }
+
+        .lang-btn {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border);
+            background: rgba(124, 77, 255, 0.08);
+        }
+
+        .lang-btn.active {
+            color: white;
+            background: var(--purple);
+            border-color: var(--purple);
+        }
+
+        .translation-block {
+            margin-top: 48px;
+            padding-top: 40px;
+            border-top: 2px solid var(--border);
+        }
+
+        .translation-notice {
+            padding: 16px 20px;
+            background: rgba(124, 77, 255, 0.08);
+            border: 1px solid rgba(124, 77, 255, 0.2);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            color: var(--purple-light);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .translation-block h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .translation-block h2 {
+            font-size: 1.2rem;
+            margin-top: 32px;
+            margin-bottom: 10px;
+        }
+
+        .translation-block p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 14px;
+        }
+
+        [dir="rtl"] {
+            text-align: right;
+        }
+
+        [dir="rtl"] .translation-notice {
+            direction: rtl;
+        }
+    </style>
 </head>
 
-<body>
+<body data-legal-type="privacy">
 
     <!-- Navbar -->
     <nav class="navbar">
@@ -39,6 +125,9 @@
         <div class="container">
             <h1>Privacy Policy</h1>
             <p class="last-updated">Last updated: March 9, 2026</p>
+
+            <!-- Language Selector (auto-populated by JS) -->
+            <div id="language-selector"></div>
 
             <div class="highlight-box">
                 <p><strong>Summary:</strong> We collect only the minimum data necessary to provide our service. Your
@@ -129,16 +218,21 @@
                 <li><strong>Usage analytics:</strong> Aggregated and anonymized after 90 days</li>
             </ul>
 
-            <h2>7. Your Rights</h2>
-            <p>You have the right to:</p>
+            <h2>7. Your Rights (GDPR / CCPA / Global)</h2>
+            <p>Regardless of where you live, you have the right to:</p>
             <ul>
                 <li>Access your personal data</li>
                 <li>Correct inaccurate data</li>
                 <li>Delete your account and associated data</li>
-                <li>Export your data</li>
+                <li>Export your data in a portable format</li>
                 <li>Opt-out of marketing communications</li>
-                <li>Withdraw consent for data processing</li>
+                <li>Withdraw consent for data processing at any time</li>
+                <li>Lodge a complaint with your local data protection authority</li>
             </ul>
+            <p><strong>EU/EEA Users (GDPR):</strong> We process your data based on consent and legitimate interest. You
+                may exercise your rights under GDPR by contacting us.</p>
+            <p><strong>California Users (CCPA):</strong> We do not sell personal information. You have the right to
+                know, delete, and opt-out.</p>
 
             <h2>8. Children's Privacy</h2>
             <p>ChartMind is not intended for use by children under the age of 18. We do not knowingly collect personal
@@ -146,21 +240,27 @@
                 information, please contact us.</p>
 
             <h2>9. International Data Transfers</h2>
-            <p>Your information may be transferred to and processed in countries other than your country of residence.
-                We ensure that appropriate safeguards are in place to protect your data in accordance with applicable
+            <p>Your information may be transferred to and processed in countries other than your country of residence
+                (including the United States and EU). We ensure that appropriate safeguards are in place, including
+                Standard Contractual Clauses (SCCs) where required, to protect your data in accordance with applicable
                 data protection laws.</p>
 
             <h2>10. Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new
-                Privacy Policy on this page and updating the "Last updated" date.</p>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by
+                posting the new Privacy Policy on this page, updating the "Last updated" date, and sending an in-app
+                notification when appropriate.</p>
 
             <h2>11. Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy, please contact us:</p>
+            <p>If you have any questions about this Privacy Policy or wish to exercise your data rights, please contact
+                us:</p>
             <ul>
                 <li><strong>Email:</strong> <a href="mailto:m.aliud@outlook.com">m.aliud@outlook.com</a></li>
                 <li><strong>Company:</strong> Space AI Labs</li>
                 <li><strong>Website:</strong> <a href="https://chartmind.space">https://chartmind.space</a></li>
             </ul>
+
+            <!-- Translated content (auto-populated by JS based on browser locale) -->
+            <div id="translated-content"></div>
         </div>
     </main>
 
@@ -183,6 +283,7 @@
         const links = document.getElementById('navLinks');
         toggle.addEventListener('click', () => links.classList.toggle('active'));
     </script>
+    <script src="translations.js"></script>
 
 </body>
 
