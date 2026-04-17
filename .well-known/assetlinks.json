@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "ai.spaceailabs.chartgpt",
+    "sha256_cert_fingerprints": ["9E:1E:D8:77:D5:FB:2D:F8:42:52:AA:F0:00:58:EA:3F:0C:84:71:89:C9:E1:EB:EB:3C:1F:66:CE:B3:EE:90:00"]
+  }
+}]
