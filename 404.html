@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ChartMind — Invite</title>
+    <meta name="description" content="You've been invited to ChartMind — AI-powered trading assistant.">
+
+    <!-- Open Graph (rich previews when the invite link is shared on social) -->
+    <meta property="og:title" content="🎁 You've been invited to ChartMind">
+    <meta property="og:description" content="AI-powered chart analysis. Both of you earn 150 XP when you join.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://chartmind.space/og-invite.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #08080c;
+            --bg-secondary: #111118;
+            --bg-card: #16161f;
+            --surface: #1e1e2a;
+            --purple: #7C4DFF;
+            --purple-light: #B388FF;
+            --purple-dark: #5a2fd6;
+            --teal: #00BFA5;
+            --teal-light: #1DE9B6;
+            --gold: #FFD54F;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --text-tertiary: #6c6c7a;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            font-family: var(--font);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124, 77, 255, 0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 80% 60% at 50% 100%, rgba(0, 191, 165, 0.10) 0%, transparent 60%),
+                var(--bg-primary);
+        }
+
+        .card {
+            width: 100%;
+            max-width: 460px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            padding: 32px 24px;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(124, 77, 255, 0.08);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .brand-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--purple), var(--teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .brand-name {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .gift {
+            font-size: 56px;
+            text-align: center;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        .headline {
+            font-size: 26px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--purple-light), var(--teal-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subline {
+            font-size: 15px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 28px;
+            line-height: 1.5;
+        }
+
+        .code-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-tertiary);
+            text-align: center;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .code-display {
+            font-family: var(--mono);
+            font-size: 36px;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 0.18em;
+            padding: 18px;
+            margin-bottom: 24px;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(124, 77, 255, 0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            user-select: all;
+        }
+
+        .cta-primary {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+            color: #ffffff !important;
+            text-decoration: none;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 14px;
+            margin-bottom: 16px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+            box-shadow: 0 8px 24px rgba(124, 77, 255, 0.25);
+        }
+
+        .cta-primary:hover, .cta-primary:active { transform: translateY(-1px); box-shadow: 0 12px 32px rgba(124, 77, 255, 0.35); }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0 16px;
+            color: var(--text-tertiary);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .stores {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .store-btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            background: var(--surface);
+            color: var(--text-primary) !important;
+            text-decoration: none;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: background 0.15s ease, border-color 0.15s ease;
+        }
+
+        .store-btn:hover, .store-btn:active {
+            background: var(--bg-secondary);
+            border-color: rgba(124, 77, 255, 0.3);
+        }
+
+        .store-icon { font-size: 28px; line-height: 1; }
+        .store-text { display: flex; flex-direction: column; line-height: 1.2; }
+        .store-text small { font-size: 11px; color: var(--text-tertiary); margin-bottom: 2px; }
+        .store-text strong { font-size: 15px; font-weight: 600; }
+
+        footer {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            font-size: 12px;
+        }
+
+        footer a { color: var(--text-tertiary); text-decoration: none; transition: color 0.15s; }
+        footer a:hover { color: var(--text-secondary); }
+
+        /* Generic 404 view (when path doesn't match /invite/<code>) */
+        .err-code {
+            font-size: 88px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, var(--purple-light), var(--teal-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @media (max-width: 380px) {
+            .card { padding: 24px 18px; }
+            .code-display { font-size: 28px; padding: 14px; letter-spacing: 0.14em; }
+            .headline { font-size: 22px; }
+            .gift { font-size: 48px; }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="card" id="card">
+        <!-- Content rendered by JS based on URL path -->
+    </main>
+
+    <script>
+        // ── i18n ────────────────────────────────────────────────
+        // Sprint 142 — invite landing for chartmind.space/invite/<code>.
+        // Bilingual (en + tr) detected via navigator.language; fallback en.
+        // Wider locale matrix lives in mobile/lib/l10n/ (38 locales for the
+        // in-app strings); web landing uses the 2 highest-traffic.
+        var LANG = (navigator.language || 'en').toLowerCase().slice(0, 2) === 'tr' ? 'tr' : 'en';
+        var T = {
+            en: {
+                pageTitle: '🎁 You\'ve been invited to ChartMind',
+                headline: '🎁 You\'ve been invited!',
+                subline: 'Both of you earn <strong>150 XP</strong> when you join ChartMind — AI-powered trading assistant.',
+                codeLabel: 'Your invite code',
+                openApp: 'Open in ChartMind',
+                noAppYet: "Don't have the app yet?",
+                appStoreSmall: 'Download on the',
+                appStoreLarge: 'App Store',
+                playStoreSmall: 'Get it on',
+                playStoreLarge: 'Google Play',
+                privacy: 'Privacy',
+                terms: 'Terms',
+                support: 'Support',
+                err404: '404',
+                errTitle: 'Page not found',
+                errBody: 'The page you\'re looking for doesn\'t exist. Head back to chartmind.space.',
+                errCta: 'Go to ChartMind',
+                ogTitle: '🎁 You\'ve been invited to ChartMind',
+            },
+            tr: {
+                pageTitle: '🎁 ChartMind\'a davet edildin',
+                headline: '🎁 Davet aldın!',
+                subline: 'ChartMind\'a katılınca ikiniz de <strong>150 XP</strong> kazanırsınız — AI destekli trading asistanı.',
+                codeLabel: 'Davet kodun',
+                openApp: 'ChartMind\'da aç',
+                noAppYet: 'Henüz uygulama yok mu?',
+                appStoreSmall: 'İndir',
+                appStoreLarge: 'App Store',
+                playStoreSmall: 'İndir',
+                playStoreLarge: 'Google Play',
+                privacy: 'Gizlilik',
+                terms: 'Şartlar',
+                support: 'Destek',
+                err404: '404',
+                errTitle: 'Sayfa bulunamadı',
+                errBody: 'Aradığın sayfa burada değil. chartmind.space\'e dön.',
+                errCta: 'ChartMind\'a git',
+                ogTitle: '🎁 ChartMind\'a davet edildin',
+            }
+        };
+        var t = T[LANG];
+
+        // Update <html lang> + <title> for screen readers + browser history.
+        document.documentElement.lang = LANG;
+        document.title = t.pageTitle;
+
+        // ── Path detection ──────────────────────────────────────
+        // /invite/<6-char-Crockford-code> → invite landing.
+        // Regex mirrors backend ValidateCodeFormat: 6 chars from
+        // ABCDEFGHJKMNPQRSTUVWXYZ23456789 (excludes I/O/L/0/1).
+        // Trailing slash tolerated; case-insensitive at the URL layer
+        // (server normalizes to upper).
+        var path = window.location.pathname;
+        var INVITE_RE = /^\/invite\/([ABCDEFGHJKMNPQRSTUVWXYZ23456789]{6})\/?$/i;
+        var match = path.match(INVITE_RE);
+
+        var card = document.getElementById('card');
+
+        if (match) {
+            var code = match[1].toUpperCase();
+            // Re-trigger the same URL via location.href so iOS Universal
+            // Link AASA logic re-evaluates if the user already has the app
+            // (Safari shows the "Open in App" banner above the page; the
+            // "Open in ChartMind" button below is a redundant tap target
+            // for keyboard / accessibility users).
+            var openHref = '/invite/' + code;
+
+            // Store URLs — placeholders matching the rest of the site
+            // (Sprint 142 — apps not yet on public stores; href="#" until
+            // the App Store ID + Play Store listing are wired site-wide).
+            var appStoreHref = '#';
+            var playStoreHref = '#';
+
+            card.innerHTML =
+                '<div class="brand">' +
+                '  <div class="brand-mark">📊</div>' +
+                '  <div class="brand-name">ChartMind</div>' +
+                '</div>' +
+                '<div class="gift">🎁</div>' +
+                '<h1 class="headline">' + t.headline + '</h1>' +
+                '<p class="subline">' + t.subline + '</p>' +
+                '<div class="code-label">' + t.codeLabel + '</div>' +
+                '<div class="code-display" id="code">' + code + '</div>' +
+                '<a href="' + openHref + '" class="cta-primary">' + t.openApp + '</a>' +
+                '<div class="divider">' + t.noAppYet + '</div>' +
+                '<div class="stores">' +
+                '  <a href="' + appStoreHref + '" class="store-btn" rel="noopener">' +
+                '    <span class="store-icon">🍎</span>' +
+                '    <div class="store-text"><small>' + t.appStoreSmall + '</small><strong>' + t.appStoreLarge + '</strong></div>' +
+                '  </a>' +
+                '  <a href="' + playStoreHref + '" class="store-btn" rel="noopener">' +
+                '    <span class="store-icon">🤖</span>' +
+                '    <div class="store-text"><small>' + t.playStoreSmall + '</small><strong>' + t.playStoreLarge + '</strong></div>' +
+                '  </a>' +
+                '</div>' +
+                '<footer>' +
+                '  <a href="/privacy-policy.html">' + t.privacy + '</a>' +
+                '  <a href="/terms-of-service.html">' + t.terms + '</a>' +
+                '  <a href="/support.html">' + t.support + '</a>' +
+                '</footer>';
+        } else {
+            // Generic 404 — non-/invite path that doesn't exist.
+            card.innerHTML =
+                '<div class="brand">' +
+                '  <div class="brand-mark">📊</div>' +
+                '  <div class="brand-name">ChartMind</div>' +
+                '</div>' +
+                '<h1 class="err-code">' + t.err404 + '</h1>' +
+                '<p class="subline" style="margin-bottom:24px"><strong>' + t.errTitle + '</strong><br>' + t.errBody + '</p>' +
+                '<a href="/" class="cta-primary">' + t.errCta + '</a>';
+        }
+    </script>
+</body>
+
+</html>
