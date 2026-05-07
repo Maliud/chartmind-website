@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["49CT3A6XH8.ai.spaceailabs.chartgpt"],
+        "components": [
+          {
+            "/": "/invite/*",
+            "comment": "Sprint 140 referral invite Universal Link — chartmind.space/invite/<6-char-Crockford-code> opens InviteScreen and auto-redeems the code post-auth"
+          }
+        ]
+      }
+    ]
+  }
+}
