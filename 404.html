@@ -164,6 +164,19 @@
 
         .cta-primary:hover, .cta-primary:active { transform: translateY(-1px); box-shadow: 0 12px 32px rgba(124, 77, 255, 0.35); }
 
+        .has-app-hint {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin: -8px 0 12px;
+            padding: 12px 14px;
+            background: rgba(124, 77, 255, 0.08);
+            border: 1px solid rgba(124, 77, 255, 0.15);
+            border-radius: 12px;
+            line-height: 1.45;
+        }
+        .has-app-hint strong { color: var(--purple-light); font-weight: 600; }
+
         .divider {
             display: flex;
             align-items: center;
@@ -264,8 +277,8 @@
                 headline: '🎁 You\'ve been invited!',
                 subline: 'Both of you earn <strong>150 XP</strong> when you join ChartMind — AI-powered trading assistant.',
                 codeLabel: 'Your invite code',
-                openApp: 'Open in ChartMind',
-                noAppYet: "Don't have the app yet?",
+                hasAppHint: 'Already have ChartMind? Tap the <strong>"Open"</strong> banner above ↑',
+                noAppYet: 'Install ChartMind to redeem',
                 appStoreSmall: 'Download on the',
                 appStoreLarge: 'App Store',
                 playStoreSmall: 'Get it on',
@@ -284,8 +297,8 @@
                 headline: '🎁 Davet aldın!',
                 subline: 'ChartMind\'a katılınca ikiniz de <strong>150 XP</strong> kazanırsınız — AI destekli trading asistanı.',
                 codeLabel: 'Davet kodun',
-                openApp: 'ChartMind\'da aç',
-                noAppYet: 'Henüz uygulama yok mu?',
+                hasAppHint: 'ChartMind yüklü mü? Yukarıdaki <strong>"AÇ"</strong> butonuna dokun ↑',
+                noAppYet: 'ChartMind\'ı yükle ve kodu kullan',
                 appStoreSmall: 'İndir',
                 appStoreLarge: 'App Store',
                 playStoreSmall: 'İndir',
@@ -320,12 +333,6 @@
 
         if (match) {
             var code = match[1].toUpperCase();
-            // Re-trigger the same URL via location.href so iOS Universal
-            // Link AASA logic re-evaluates if the user already has the app
-            // (Safari shows the "Open in App" banner above the page; the
-            // "Open in ChartMind" button below is a redundant tap target
-            // for keyboard / accessibility users).
-            var openHref = '/invite/' + code;
 
             // Store URLs — placeholders matching the rest of the site
             // (Sprint 142 — apps not yet on public stores; href="#" until
@@ -333,6 +340,14 @@
             var appStoreHref = '#';
             var playStoreHref = '#';
 
+            // No "Open in App" CTA on the same-domain landing — Safari treats
+            // a same-domain anchor click as an in-page reload and skips the
+            // AASA Universal Link routing (Apple-documented iOS behavior).
+            // The smart banner that Safari overlays on top of this page IS
+            // the actual app-open mechanism for users who already have the
+            // app. We surface that visually with `hasAppHint` and let the
+            // App Store / Play Store buttons be the primary CTA for users
+            // who don't yet have the app.
             card.innerHTML =
                 '<div class="brand">' +
                 '  <div class="brand-mark">📊</div>' +
@@ -343,7 +358,7 @@
                 '<p class="subline">' + t.subline + '</p>' +
                 '<div class="code-label">' + t.codeLabel + '</div>' +
                 '<div class="code-display" id="code">' + code + '</div>' +
-                '<a href="' + openHref + '" class="cta-primary">' + t.openApp + '</a>' +
+                '<p class="has-app-hint">' + t.hasAppHint + '</p>' +
                 '<div class="divider">' + t.noAppYet + '</div>' +
                 '<div class="stores">' +
                 '  <a href="' + appStoreHref + '" class="store-btn" rel="noopener">' +
