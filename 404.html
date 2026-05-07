@@ -198,31 +198,37 @@
         .stores {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-        }
-
-        .store-btn {
-            display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 14px 18px;
-            background: var(--surface);
-            color: var(--text-primary) !important;
-            text-decoration: none;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: background 0.15s ease, border-color 0.15s ease;
+            gap: 12px;
         }
 
-        .store-btn:hover, .store-btn:active {
-            background: var(--bg-secondary);
-            border-color: rgba(124, 77, 255, 0.3);
+        .store-badge {
+            display: inline-block;
+            transition: transform 0.15s ease, opacity 0.15s ease;
+            line-height: 0;
+            border-radius: 8px;
         }
+        .store-badge:hover, .store-badge:active { transform: translateY(-1px); opacity: 0.9; }
+        .store-badge img { height: 48px; width: auto; display: block; }
+        .store-badge.disabled { opacity: 0.45; cursor: default; pointer-events: none; }
 
-        .store-icon { font-size: 28px; line-height: 1; }
-        .store-text { display: flex; flex-direction: column; line-height: 1.2; }
-        .store-text small { font-size: 11px; color: var(--text-tertiary); margin-bottom: 2px; }
-        .store-text strong { font-size: 15px; font-weight: 600; }
+        .store-coming-soon {
+            position: relative;
+        }
+        .store-coming-soon::after {
+            content: attr(data-coming-soon);
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--gold);
+            color: #1a1a00;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
 
         footer {
             margin-top: 28px;
@@ -279,10 +285,9 @@
                 codeLabel: 'Your invite code',
                 hasAppHint: 'Already have ChartMind? Tap the <strong>"Open"</strong> banner above ↑',
                 noAppYet: 'Install ChartMind to redeem',
-                appStoreSmall: 'Download on the',
-                appStoreLarge: 'App Store',
-                playStoreSmall: 'Get it on',
-                playStoreLarge: 'Google Play',
+                appStoreAlt: 'Download on the App Store',
+                playStoreAlt: 'Get it on Google Play',
+                comingSoon: 'soon',
                 privacy: 'Privacy',
                 terms: 'Terms',
                 support: 'Support',
@@ -299,10 +304,9 @@
                 codeLabel: 'Davet kodun',
                 hasAppHint: 'ChartMind yüklü mü? Yukarıdaki <strong>"AÇ"</strong> butonuna dokun ↑',
                 noAppYet: 'ChartMind\'ı yükle ve kodu kullan',
-                appStoreSmall: 'İndir',
-                appStoreLarge: 'App Store',
-                playStoreSmall: 'İndir',
-                playStoreLarge: 'Google Play',
+                appStoreAlt: 'App Store\'dan İndir',
+                playStoreAlt: 'Google Play\'den İndir',
+                comingSoon: 'yakında',
                 privacy: 'Gizlilik',
                 terms: 'Şartlar',
                 support: 'Destek',
@@ -334,11 +338,15 @@
         if (match) {
             var code = match[1].toUpperCase();
 
-            // Store URLs — placeholders matching the rest of the site
-            // (Sprint 142 — apps not yet on public stores; href="#" until
-            // the App Store ID + Play Store listing are wired site-wide).
-            var appStoreHref = '#';
-            var playStoreHref = '#';
+            // Store URLs — Play Store listing is live; App Store is in
+            // TestFlight (Sprint 142) so the public App Store URL is
+            // not yet available. Placeholder + "soon" badge until the
+            // App Store Connect record is made public.
+            var APP_BUNDLE_ID = 'ai.spaceailabs.chartgpt';
+            var appStoreHref = '#';            // TODO: replace with https://apps.apple.com/app/id<APP_ID> when public
+            var appStoreLive = false;
+            var playStoreHref = 'https://play.google.com/store/apps/details?id=' + APP_BUNDLE_ID;
+            var playStoreLive = true;
 
             // No "Open in App" CTA on the same-domain landing — Safari treats
             // a same-domain anchor click as an in-page reload and skips the
@@ -361,13 +369,18 @@
                 '<p class="has-app-hint">' + t.hasAppHint + '</p>' +
                 '<div class="divider">' + t.noAppYet + '</div>' +
                 '<div class="stores">' +
-                '  <a href="' + appStoreHref + '" class="store-btn" rel="noopener">' +
-                '    <span class="store-icon">🍎</span>' +
-                '    <div class="store-text"><small>' + t.appStoreSmall + '</small><strong>' + t.appStoreLarge + '</strong></div>' +
+                '  <a href="' + appStoreHref + '"' +
+                '     class="store-badge' + (appStoreLive ? '' : ' disabled store-coming-soon') + '"' +
+                '     data-coming-soon="' + t.comingSoon + '"' +
+                '     aria-label="' + t.appStoreAlt + '"' +
+                '     ' + (appStoreLive ? 'rel="noopener" target="_blank"' : 'aria-disabled="true"') + '>' +
+                '    <img src="/badges/app-store.svg" alt="' + t.appStoreAlt + '" loading="lazy">' +
                 '  </a>' +
-                '  <a href="' + playStoreHref + '" class="store-btn" rel="noopener">' +
-                '    <span class="store-icon">🤖</span>' +
-                '    <div class="store-text"><small>' + t.playStoreSmall + '</small><strong>' + t.playStoreLarge + '</strong></div>' +
+                '  <a href="' + playStoreHref + '"' +
+                '     class="store-badge"' +
+                '     aria-label="' + t.playStoreAlt + '"' +
+                '     rel="noopener" target="_blank">' +
+                '    <img src="/badges/google-play.svg" alt="' + t.playStoreAlt + '" loading="lazy">' +
                 '  </a>' +
                 '</div>' +
                 '<footer>' +
