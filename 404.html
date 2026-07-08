@@ -343,9 +343,17 @@
             // not yet available. Placeholder + "soon" badge until the
             // App Store Connect record is made public.
             var APP_BUNDLE_ID = 'ai.spaceailabs.chartgpt';
-            var appStoreHref = '#';            // TODO: replace with https://apps.apple.com/app/id<APP_ID> when public
+            // Numeric App Store id is final pre-approval (ASC assigns it
+            // at record creation). Keep appStoreLive=false until Apple
+            // approves 1.0.3 — then this is a one-line flip.
+            var appStoreHref = 'https://apps.apple.com/app/id6759520830';
             var appStoreLive = false;
-            var playStoreHref = 'https://play.google.com/store/apps/details?id=' + APP_BUNDLE_ID;
+            // Sprint 146 — Play Install Referrer carries the invite code
+            // + fixed-registry UTM (utm_source=ref) so the install joins
+            // install_attributions AND the in-app referral redeem flow.
+            // Decoded: utm_source=ref&utm_medium=invite&utm_campaign=<code>
+            var playStoreHref = 'https://play.google.com/store/apps/details?id=' + APP_BUNDLE_ID +
+                '&referrer=utm_source%3Dref%26utm_medium%3Dinvite%26utm_campaign%3D' + code;
             var playStoreLive = true;
 
             // No "Open in App" CTA on the same-domain landing — Safari treats
