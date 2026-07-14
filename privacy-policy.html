@@ -121,7 +121,7 @@
     <main class="legal-page">
         <div class="container">
             <h1>Privacy Policy</h1>
-            <p class="last-updated">Effective Date: March 9, 2026 &nbsp;|&nbsp; Last Updated: March 9, 2026</p>
+            <p class="last-updated">Effective Date: March 9, 2026 &nbsp;|&nbsp; Last Updated: July 14, 2026</p>
             <div id="language-selector"></div>
 
             <div class="highlight-box">
@@ -161,8 +161,9 @@
                 <li>Chart images you upload or capture with your device camera are transmitted to our servers for AI
                     processing</li>
                 <li>Images are processed through our AI analysis pipeline (utilizing OpenAI, Anthropic, and/or Google AI
-                    services) and are <strong>automatically and permanently deleted within 24 hours</strong> of analysis
-                    completion</li>
+                    services) and are <strong>retained as part of your analysis history</strong> so that your past
+                    analyses remain viewable in the app; they are <strong>permanently deleted when you delete your
+                    account</strong></li>
                 <li>Analysis results (text-based predictions, pattern identifications, and technical assessments) are
                     stored in your account history and may be deleted by you at any time</li>
                 <li>We do not use your chart images for training AI models, advertising, or any purpose other than
@@ -240,16 +241,22 @@
 
             <h3>4.1 AI Analysis Providers</h3>
             <ul>
-                <li><strong>OpenAI, Anthropic (Claude), Google AI (Gemini):</strong> Chart images are transmitted to
-                    these providers for AI-powered analysis. Images are processed in accordance with each provider's
-                    data processing agreements and are not used by these providers for model training when processed via
-                    their API services.</li>
+                <li><strong>OpenAI, Anthropic (Claude), Google AI (Gemini):</strong> Content you submit to AI features
+                    is transmitted to these providers to generate your results. Depending on the feature, this content
+                    is: chart images (chart analysis), your typed questions and filter descriptions (AI assistant and
+                    screener AI tools), and — when you use the AI assistant — a context summary of your portfolio
+                    holdings, watchlist, and recent analysis history. Your name, email address, and account identifiers
+                    are never included in the content sent to these providers. Content is processed in accordance with
+                    each provider's data processing agreements and is not used by these providers for model training
+                    when processed via their API services.</li>
             </ul>
 
             <h3>4.2 Infrastructure and Authentication</h3>
             <ul>
                 <li><strong>Firebase (Google Cloud):</strong> Authentication services, push notification delivery, crash
                     reporting (Crashlytics)</li>
+                <li><strong>Sentry:</strong> Application error and crash reporting, used to diagnose and fix technical
+                    problems; can be disabled at any time in Settings → Privacy &amp; Diagnostics</li>
                 <li><strong>Amazon Web Services (AWS):</strong> Server infrastructure, data storage, and processing</li>
                 <li><strong>Cloudflare:</strong> DNS management, DDoS protection, and content delivery</li>
             </ul>
@@ -296,8 +303,8 @@
             <!-- 6 -->
             <h2>6. Data Retention</h2>
             <ul>
-                <li><strong>Chart images:</strong> Automatically and permanently deleted within 24 hours of analysis
-                    completion</li>
+                <li><strong>Chart images:</strong> Retained as part of your analysis history; permanently deleted when
+                    you delete your account</li>
                 <li><strong>Analysis results:</strong> Retained in your account history until you delete them or delete
                     your account</li>
                 <li><strong>Account data:</strong> Retained for the duration of your account. Upon account deletion, all
